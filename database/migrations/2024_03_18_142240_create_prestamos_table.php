@@ -8,21 +8,24 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     */
-    public function up(): void
-    {
-        Schema::create('prestamos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->usingnedBigInteger('user_id');
-            $table->usingnedBigInteger('book_id');
-            $table->timestamp('fecha_prestamo')->nullable();
-            $table->timestamp('fecha_devolucion')->nullable();
-            $table->timestamps();
-            //definir clave foranea
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('book_id')->references('id')->on('libros')->onDelete('cascade');
-        });
-    }
+     */public function up(): void
+{
+    Schema::create('prestamos', function (Blueprint $table) {
+        $table->increments('id');
+        $table->unsignedBigInteger('user_id'); // bigint(20) para compatibilidad con `users.id`
+        $table->unsignedInteger('book_id'); // int(10) para compatibilidad con `libros.id`
+        $table->timestamp('fecha_prestamo')->nullable();
+        $table->timestamp('fecha_devolucion')->nullable();
+        $table->timestamps();
+
+        // Clave foránea para user_id
+        $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        // Clave foránea para book_id, ajustada al tipo int(10)
+        $table->foreign('book_id')->references('id')->on('libros')->onDelete('cascade');
+    });
+}
+
+
 
     /**
      * Reverse the migrations.
