@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->string('autor');
-            $table->string('año_publicacion');
+            $table->date('año_publicacion');
             $table->string('genero');
             $table->boolean('disponible');
             $table->timestamps();
