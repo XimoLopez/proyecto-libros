@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+{{-- Mensaje de éxito y de error --}}
+    @if(session('success'))
+        <div class="success-message">{{ session('success') }}</div>
+    @endif
+
+    @if(session('error'))
+        <div class="error-message">{{ session('error') }}</div>
+    @endif
 <div class="book-list-container">
     <h1>Libros</h1>
     <ul>

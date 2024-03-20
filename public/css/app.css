@@ -189,3 +189,18 @@ a:hover {
 .navbar a:hover {
     text-decoration: underline;
 }
+
+/* Estilos para los mensajes */
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 10px;
+}

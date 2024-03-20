@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Libro;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 
 class LibroController extends Controller
 {
@@ -37,7 +39,7 @@ class LibroController extends Controller
     // Crea un nuevo registro en la base de datos con los datos validados.
     Libro::create($validatedData);
     // Redirige al usuario a la lista de libros.
-    return redirect('/libros');
+    return redirect('/libros')->with('success', 'Libro añadido correctamente.');
     }
     
     /**
@@ -59,17 +61,27 @@ class LibroController extends Controller
      * Actualizar el libro
      */
     public function update(Request $request, Libro $libro){
-        // Valida los datos del formulario
+        try {
         $validatedData = $request->validate([
-            'titulo' => 'required',
-            'autor' => 'required',
-            'año_publicacion' => 'required',
-            'genero' => 'required',
-            'disponible' => 'required|boolean'
-        ]);
-        $libro->update($validatedData);//Actualiza el libro
-        return redirect('/libros')->with('success', 'Libro actualizado correctamente.');//Redirige al usuario a la lista de libros
-    }
+          'titulo' => 'required',
+              'autor' => 'required',
+              'año_publicacion' => 'required',
+              'genero' => 'required',
+              'disponible' => 'required|boolean'
+          ]);
+  
+          DB::beginTransaction();
+  
+          $libro->update($validatedData);
+  
+          DB::commit();
+  
+          return redirect('/libros')->with('success', 'Libro actualizado correctamente.');
+      } catch (\Exception $e) {
+          DB::rollBack();
+          return redirect()->back()->with('error', 'Error al actualizar el libro. Por favor, inténtalo de nuevo.');
+      }
+  }
     /**
      * Borrar el libro
      */

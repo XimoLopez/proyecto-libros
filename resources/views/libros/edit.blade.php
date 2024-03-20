@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    {{-- Formulario para editar el libro --}}
     <h1>Editar Libro</h1>
     <form method="POST" action="{{ route('libros.update', $libro) }}">
         @csrf
