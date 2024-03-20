@@ -1,0 +1,191 @@
+/* RESET CSS */
+/* El padding y el border pasen a formar parte del cálculo del ancho de la caja y no lo suman posteriormente. */
+*, *:before, *:after {box-sizing: inherit;}
+*{box-sizing: border-box;padding: 0;margin: 0;}
+img {max-width: 100%;height: 100%;object-fit: cover; display: block;} /* Imagen responsive */
+a:link, a:visited, a:active {text-decoration:none;}
+ul[class], ol[class] {list-style: none;}
+/*fuente: https://www.super-simple.net/blog/un-css-reset-moderno/*/
+/* FIN RESET CSS */
+
+/* Estilos Generales */
+html {
+    height: 100%; /* Establece la altura del elemento raíz al 100% de la ventana */
+}
+
+body {
+    min-height: 100vh; 
+    scroll-behavior: smooth; 
+    text-rendering: optimizeSpeed; 
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9fafb;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    height: 100%;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+}
+
+.container {
+    max-width: 800px;
+    width: 100%; /* Asegúrate de que el ancho no supere el máximo establecido */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin-top: 1rem;
+}
+
+h1 {
+    color: #444;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+a {
+    color: #3182ce;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo Vista Información del Libro */
+.libro-info {
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.libro-info h2 {
+    margin-top: 0;
+}
+
+.libro-info p {
+    margin: 10px 0;
+}
+
+.libro-info p span {
+    font-weight: bold;
+}
+/* Estilos para formularios */
+.form-group {
+    margin-bottom: 1rem; /* Espaciado entre campos del formulario */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: .5rem; /* Espaciado entre la etiqueta y el campo de entrada */
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group select {
+    width: 100%; 
+    padding: .75rem; 
+    border: 1px solid #ddd; /* Bordes sutiles */
+    border-radius: .25rem; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente legible */
+    line-height: 1.5; /* Espaciado de línea para el texto dentro del input */
+}
+
+/* Estilo para botones */
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: #007bff; 
+    border: 1px solid transparent;
+    padding: .75rem 1.5rem; 
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    color: white; 
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.btn:focus {
+    outline: none; 
+    box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Agrega esta clase para el botón 'Añadir Libro' */
+.add-book-button {
+    display: block; /* O display: inline-block; dependiendo de tus necesidades */
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content; /* Ajusta el ancho al contenido del botón */
+}
+
+/* Estilos para el encabezado */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    padding: 0 1rem;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1rem;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}

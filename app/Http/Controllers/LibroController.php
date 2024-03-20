@@ -16,11 +16,10 @@ class LibroController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra el formulario para crear un nuevo libro
      */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('libros.create');
     }
 
     /**
@@ -42,20 +41,19 @@ class LibroController extends Controller
     }
     
     /**
-     * Display the specified resource.
+     * Muestra el libro
      */
-    public function show(Libro $libro)
-    {
-        //
+    public function show(Libro $libro){
+        return view('libros.show', compact('libro'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra el formulario para editar el libro
      */
-    public function edit(Libro $libro)
-    {
-        //
+    public function edit(Libro $libro){   
+    return view('libros.edit', compact('libro'));
     }
+
 
     /**
      * Actualizar el libro
@@ -70,7 +68,7 @@ class LibroController extends Controller
             'disponible' => 'required|boolean'
         ]);
         $libro->update($validatedData);//Actualiza el libro
-        return redirect('/libros');//Redirige al usuario a la lista de libros
+        return redirect('/libros')->with('success', 'Libro actualizado correctamente.');//Redirige al usuario a la lista de libros
     }
     /**
      * Borrar el libro

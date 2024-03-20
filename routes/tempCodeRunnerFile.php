@@ -10,6 +10,3 @@ Route::get('/libros/{libro}', [LibroController::class, 'show'])->name('libros.sh
 Route::get('/libros/{libro}/edit', [LibroController::class, 'edit'])->name('libros.edit');//Muestra el formulario para editar el libro
 Route::put('/libros/{libro}', [LibroController::class, 'update'])->name('libros.update');//Actualiza el libro
 Route::delete('/libros/{libro}', [LibroController::class, 'destroy'])->name('libros.destroy');//Borra el libro
-
-
-
