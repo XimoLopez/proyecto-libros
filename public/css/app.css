@@ -33,7 +33,7 @@ main{
 }
 
 .container {
-    max-width: 800px;
+    max-width: 900px;
     width: 100%; /* Asegúrate de que el ancho no supere el máximo establecido */
     padding: 20px;
     background-color: #fff;
@@ -216,4 +216,37 @@ p {
 .btn-disabled:hover {
     background-color: #cccccc; /* Gris */
     color: #666666; /* Color del texto más oscuro para contraste */
+}
+/* Define estilos para las tablas */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+ /*  direction: rtl; */
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+.table td:first-child {
+  width: 10%;
+}
+
+.table td:nth-child(2) {
+  width: 40%;
+}
+
+.table td:nth-child(3) {
+  width: 20%;
+}
+
+.table td:last-child {
+  width: 30%;
 }

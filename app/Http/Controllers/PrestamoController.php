@@ -54,9 +54,10 @@ class PrestamoController extends Controller
     /**
      * Muestra todos los libros que se han prestado
      */
+    
     public function index()
     {
-        $prestamos = Prestamo::with('libro')->get();
+        $prestamos = Prestamo::with('libro')->orderBy('id', 'desc')->get();
 
         return view('prestamos.index', compact('prestamos'));
     }
