@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
 {{-- Mensaje de éxito y de error --}}
     @if(session('success'))
         <div class="success-message">{{ session('success') }}</div>
@@ -20,5 +21,6 @@
 <!-- Botón para añadir un nuevo libro-->
 <div class="add-book-button">
     <a href="{{ route('libros.create') }}" class="btn btn-primary">Añadir Libro</a>
+</div>
 </div>
 @endsection

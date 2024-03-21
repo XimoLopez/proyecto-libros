@@ -35,8 +35,9 @@
                 <option value="0" {{ !$libro->disponible ? 'selected' : '' }}>No</option>
             </select>
         </div>
-
+        <div class="add-book-button">
         <button type="submit" class="btn btn-primary">Actualizar Libro</button>
+        </div>
     </form>
 </div>
 @endsection
