@@ -17,10 +17,9 @@ class Prestamo extends Model
         'fecha_devolucion' => 'datetime'
     ];
 
-    public function libro()
-{
+    public function libro(){
     return $this->belongsTo(Libro::class, 'book_id');
-}
+    }
 
 }
 

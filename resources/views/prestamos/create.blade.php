@@ -10,7 +10,6 @@
             <select class="form-control" id="book_id" name="book_id">
                 @foreach($librosDisponibles as $libro)
                     <option value="{{ $libro->id }}" {{ request('libro') == $libro->id ? 'selected' : '' }}>{{ $libro->titulo }}</option>
-                    {{-- <option value="{{ $libro->id }}">{{ $libro->titulo }}</option> --}}
                 @endforeach
             </select>
         </div>
