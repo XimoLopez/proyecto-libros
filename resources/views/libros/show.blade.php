@@ -8,9 +8,17 @@
     <p>Género: <span>{{ $libro->genero }}</span></p>
     <p>Disponible: <span>{{ $libro->disponible ? 'Sí' : 'No' }}</span></p>
 </div>
-<!-- Botón para editar el libro-->
+{{--Botón para editar el libro--}}
 <div class="add-book-button">
 <a href="{{ route('libros.edit', $libro->id) }}" class="btn btn-primary">Editar Libro</a>
+{{-- Asegúrate de que el botón "Prestar" se deshabilite si el libro no está disponible --}}
+{{-- <a href="{{ $libro->disponible ? route('prestamos.create', ['libro' => $libro->id]) : '#' }}" class="btn btn-primary {{ $libro->disponible ? '' : 'disabled' }}">Prestar</a> --}}
+{{-- Define y utiliza tu propia clase CSS --}}
+<a href="{{ $libro->disponible ? route('prestamos.create', ['libro' => $libro->id]) : '#' }}" class="btn {{ $libro->disponible ? 'btn-primary' : 'btn-disabled' }}">Prestar</a>
+
+</div>
+
+{{-- <a href="{{ route('prestamos.create', ['libro' => $libro->id]) }}" class="btn btn-primary">Prestar</a> --}}
 </div>
 @endsection
 

@@ -204,3 +204,16 @@ a:hover {
     padding: 10px;
     margin-bottom: 10px;
 }
+/* Añadir interlineado entre los parrafos */
+p {
+    line-height: 2.5;
+}
+
+.btn-disabled {
+    background-color: #cccccc; /* Gris */
+    color: #666666; /* Color del texto más oscuro para contraste */
+}
+.btn-disabled:hover {
+    background-color: #cccccc; /* Gris */
+    color: #666666; /* Color del texto más oscuro para contraste */
+}

@@ -18,6 +18,8 @@
         <nav class="navbar">
             <ul>
                 <li><a href="{{ url('/libros') }}">Ver todos los libros</a></li>
+                <li><a href="{{ url('/prestamos/create') }}">Añadir un prestamo</a></li>
+                <li><a href="{{ url('/prestamos/') }}">Ver todos los prestamos</a></li>
                 <!-- Aquí puedemos añadir más elementos al menú si es necesario -->
             </ul>
         </nav>
