@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
 <div class="container">
     {{-- Mensaje de éxito y de error --}}
     @if(session('success'))
@@ -29,4 +27,4 @@
         <a href="{{ route('libros.create') }}" class="btn btn-primary">Añadir Libro</a>
     </div>
 </div>
-@endsection
+</x-app-layout>

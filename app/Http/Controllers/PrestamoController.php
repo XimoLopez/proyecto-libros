@@ -31,7 +31,7 @@ class PrestamoController extends Controller
                 DB::beginTransaction();
 
                 Prestamo::create([
-                    'user_id' => 1, // O auth()->id() cuando implementes la autenticación
+                    'user_id' => auth()->id() ,// Obtiene el ID del usuario autenticado
                     'book_id' => $request->book_id,
                     'fecha_prestamo' => now(),
                     'fecha_devolucion' => now()->addDays(7),
