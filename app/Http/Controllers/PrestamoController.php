@@ -7,6 +7,7 @@ use App\Models\Prestamo;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PrestamoController extends Controller
 {
@@ -56,8 +57,12 @@ class PrestamoController extends Controller
      */
     
     public function index()
-    {
-        $prestamos = Prestamo::with('libro')->orderBy('id', 'desc')->get();
+    { 
+        //Modificamos el metodo para que solo se muestren los libros que se han prestado a el usuario logeado
+        $userId = Auth::id(); // Obtiene el ID del usuario autenticado
+       //Mostramos solo los libros que se han prestado y del usuario logeado
+        $prestamos = Prestamo::where('user_id', $userId)->where('devuelto', false)->with('libro')->orderBy('id', 'desc')->get();
+
 
         return view('prestamos.index', compact('prestamos'));
     }
@@ -69,11 +74,12 @@ class PrestamoController extends Controller
         $prestamo = Prestamo::where('id', $id)->where('user_id', auth()->id())->firstOrFail();
         $libro = $prestamo->libro;
 
-        if ($libro) {
-            $libro->disponible = 1; // Marcar como disponible
-            $libro->save();
-        }
-
+        // Asumimos que siempre habrá un libro asociado al préstamo
+        $libro->disponible = 1; // Marcar como disponible
+        $libro->save();
+        $prestamo->devuelto = true; // Marcar como devuelto
+        $prestamo->save();   
+        
         return redirect()->route('prestamos.index')->with('success', 'Préstamo finalizado y libro marcado como disponible.');
     }
 

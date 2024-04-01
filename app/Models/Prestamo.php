@@ -11,11 +11,12 @@ class Prestamo extends Model
 {
     use HasFactory;
     protected $table = 'prestamos';
-    protected $fillable = ['user_id','book_id','fecha_prestamo','fecha_devolucion'];
+    protected $fillable = ['user_id','book_id','fecha_prestamo','fecha_devolucion','devuelto'];
     //Casteos de los campos fechas
     protected $casts = [
         'fecha_prestamo' => 'datetime',
-        'fecha_devolucion' => 'datetime'
+        'fecha_devolucion' => 'datetime',
+        'devuelto' => 'boolean'
     ];
 
     public function libro(){

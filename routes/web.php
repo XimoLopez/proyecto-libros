@@ -24,7 +24,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/prestamos/{id}', [PrestamoController::class, 'show'])->name('prestamos.show');
     Route::get('/user/profile', [UserProfileController::class, 'show'])->name('profile.show');
     //Rutas para el controlador de usuarios
-    Route::get('/mis-prestamos', [UserController::class, 'prestamos'])->name('usuarios.prestamos');
+    Route::get('/mis-prestamos', [UserController::class, 'index'])->name('usuarios.prestamos');
 });
 
 //Rutas para el controlador de autenticación

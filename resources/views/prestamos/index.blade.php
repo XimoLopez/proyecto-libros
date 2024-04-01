@@ -9,6 +9,9 @@
         @endif
         <br>
         <h1>Préstamos</h1>
+        @if($prestamos->isEmpty())
+            <p>No tienes préstamos activos.</p>
+        @else
         <table class="table">
             <thead>
                 <tr>
@@ -32,5 +35,6 @@
                 @endforeach
             </tbody>
         </table>
+        @endif
     </div>
 </x-app-layout>
