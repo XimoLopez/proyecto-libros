@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\PrestamoController;
 use Laravel\Jetstream\Http\Controllers\Livewire\UserProfileController;
@@ -22,6 +23,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/prestamos', [PrestamoController::class, 'index'])->name('prestamos.index');
     Route::get('/prestamos/{id}', [PrestamoController::class, 'show'])->name('prestamos.show');
     Route::get('/user/profile', [UserProfileController::class, 'show'])->name('profile.show');
+    //Rutas para el controlador de usuarios
+    Route::get('/mis-prestamos', [UserController::class, 'prestamos'])->name('usuarios.prestamos');
 });
 
 //Rutas para el controlador de autenticación

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Libro;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,6 +21,11 @@ class Prestamo extends Model
     public function libro(){
     return $this->belongsTo(Libro::class, 'book_id');
     }
+    //Relación entre tablas users y prestamos
+    public function usuario(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+   
 
 }
-
+ 
