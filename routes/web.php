@@ -6,10 +6,14 @@ use App\Http\Controllers\LibroController;
 use App\Http\Controllers\PrestamoController;
 use Laravel\Jetstream\Http\Controllers\Livewire\UserProfileController;
 
-// Rutas para el controlador de libros
 
+// Ruta para mostrar la página de bienvenida
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
+
+// Rutas para el controlador de libros
 Route::middleware(['auth'])->group(function () {
-    Route::redirect('/', '/libros');
     Route::get('/libros', [LibroController::class, 'index'])->name('libros.index'); //Muestra todos los libros
     Route::get('/libros/create', [LibroController::class, 'create'])->name('libros.create'); //Muestra el formulario para crear un nuevo libro
     Route::post('/libros', [LibroController::class, 'store'])->name('libros.store'); //Guarda un nuevo libro

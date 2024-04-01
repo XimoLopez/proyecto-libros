@@ -155,11 +155,25 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-        </div>
+         <div class="pt-2 pb-3 space-y-1">
+        <!-- Agrega tus enlaces aquí para la versión móvil -->
+        <x-responsive-nav-link href="{{ url('/libros') }}" :active="request()->is('libros')">
+            Ver todos los libros
+        </x-responsive-nav-link>
+        <x-responsive-nav-link href="{{ url('/prestamos/create') }}" :active="request()->is('prestamos/create')">
+            Añadir un préstamo
+        </x-responsive-nav-link>
+        <x-responsive-nav-link href="{{ url('/prestamos') }}" :active="request()->is('prestamos')">
+            Devolver préstamos
+        </x-responsive-nav-link>
+        <x-responsive-nav-link href="{{ url('/mis-prestamos') }}" :active="request()->is('mis-prestamos')">
+            Mis préstamos
+        </x-responsive-nav-link>
+        <!-- Dashboard link, si es necesario -->
+        <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+            {{ __('Dashboard') }}
+        </x-responsive-nav-link>
+    </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
