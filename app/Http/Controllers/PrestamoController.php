@@ -62,20 +62,21 @@ class PrestamoController extends Controller
         return view('prestamos.index', compact('prestamos'));
     }
     //Actualizar el estado del libro a disponible
+
     public function finalizar($id)
     {
-        $prestamo = Prestamo::findOrFail($id);
+        // Buscamos que el préstamo perteneza al usuario autenticado y con el ID especificado, si no, devolvemos un mensaje
+        $prestamo = Prestamo::where('id', $id)->where('user_id', auth()->id())->firstOrFail();
         $libro = $prestamo->libro;
 
         if ($libro) {
             $libro->disponible = 1; // Marcar como disponible
             $libro->save();
-
-            // Aquí puedes agregar lógica adicional si necesitas actualizar algo más en el préstamo
         }
 
         return redirect()->route('prestamos.index')->with('success', 'Préstamo finalizado y libro marcado como disponible.');
     }
+
 
     /**
      * Muestra el libro que se ha prestado

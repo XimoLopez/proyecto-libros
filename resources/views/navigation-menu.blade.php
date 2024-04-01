@@ -19,7 +19,10 @@
                         Añadir un préstamo
                     </x-nav-link>
                     <x-nav-link href="{{ url('/prestamos') }}" :active="request()->is('prestamos')">
-                        Ver todos los préstamos
+                        Devolver préstamos
+                    </x-nav-link>
+                    <x-nav-link href="{{ url('/mis-prestamos') }}" :active="request()->is('mis-prestamos')">
+                        Mis préstamos
                     </x-nav-link>
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}

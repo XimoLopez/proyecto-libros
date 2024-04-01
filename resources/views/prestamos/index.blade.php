@@ -1,5 +1,13 @@
 <x-app-layout>
     <div class="container">
+         {{-- Usamos las clases de Taiwind para dar estilos a estos mensajes ya que hemos añadido Jetstream --}}
+        @if(session('success'))
+            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4" role="alert">
+                <p class="font-bold">Éxito</p>
+                <p>{{ session('success') }}</p>
+            </div>
+        @endif
+        <br>
         <h1>Préstamos</h1>
         <table class="table">
             <thead>
